@@ -7,6 +7,8 @@ public class RigidBodyCharacterController : MonoBehaviour
     [SerializeField]
     private float accerationForce = 10;
 
+    [SerializeField]
+    private float maxSpeed = 2f;
     private new Rigidbody rigidbody;
     private Vector2 input;
 
@@ -18,7 +20,12 @@ public class RigidBodyCharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         var inputDirection = new Vector3(input.x, 0, input.y);
-        rigidbody.AddForce(inputDirection * accerationForce);
+
+        if(rigidbody.velocity.magnitude < maxSpeed)
+        {
+            rigidbody.AddForce(inputDirection * accerationForce, ForceMode.Acceleration);
+        }       
+       
     }
 
     private void Update()
