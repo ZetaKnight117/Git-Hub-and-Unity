@@ -3155,7 +3155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3bff820286dfc4e87149b8e324b8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Longer message
+  message: 'Longer message durationtype even longer message like a book that is really
+    long.
+
+'
   messageDuration: 5
 --- !u!114 &1939423991
 MonoBehaviour:
