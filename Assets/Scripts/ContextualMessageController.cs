@@ -27,4 +27,19 @@ public class ContextualMessageController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         canvasGroup.alpha = 0;
     }
+
+    private void OnConContextualMessageTriggered()
+    {
+        StartCoroutine(ShowMessage("TESTING", 2));
+    }
+
+    private void OnEnable()
+    {
+        ContextualMessageTrigger.ContextualMessageTriggered += OnConContextualMessageTriggered;
+    }
+
+    private void OnDisable()
+    {
+        ContextualMessageTrigger.ContextualMessageTriggered -= OnConContextualMessageTriggered;
+    }
 }
