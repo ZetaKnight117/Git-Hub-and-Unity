@@ -35,11 +35,11 @@ public class RigidBodyCharacterController : MonoBehaviour
         {
             rigidbody.AddForce(inputDirection * accerationForce, ForceMode.Acceleration);
         } 
-        
-       //if (cameraRelativeInputDirection.magnitude > 0) 
-        //{
-          //  var target
-        //}
+       
+        if (rigidbody.velocity.magnitude < maxSpeed)
+        {
+            rigidbody.AddForce(cameraRelativeInputDirection * accerationForce, ForceMode.Acceleration);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
