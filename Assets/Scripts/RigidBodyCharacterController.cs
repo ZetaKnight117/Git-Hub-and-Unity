@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RigidBodyCharacterController : MonoBehaviour
 {
@@ -10,8 +11,13 @@ public class RigidBodyCharacterController : MonoBehaviour
     [SerializeField]
     private float maxSpeed = 2f;
 
-    [SerializeField]
-    private PhysicMaterial stoppingPhysicMaterial, movingPhysicsMaterial;
+    private Vector3 moveVec;
+    public void OnMove(InputAction.CallbackContext input)
+    {
+        Vector2 inputVec = input.ReadValue<Vector2>();
+
+        moveVec = new Vector3(inputVec.x, 0, inputVec.y);
+    }
 
     private new Rigidbody rigidbody;
     private Vector2 input;
@@ -25,11 +31,11 @@ public class RigidBodyCharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var inputDirection = new Vector3(input.x, 0, input.y);
+        var inputDirection = moveVec;
+            //new Vector3(input.x, 0, input.y);
 
-        collider.material = inputDirection.magnitude > 0 ? movingPhysicsMaterial : stoppingPhysicMaterial;
-      
-        if(rigidbody.velocity.magnitude < maxSpeed)
+
+        if (rigidbody.velocity.magnitude < maxSpeed)
         {
           rigidbody.AddForce(inputDirection * accerationForce, ForceMode.Acceleration);
         }       
@@ -38,7 +44,8 @@ public class RigidBodyCharacterController : MonoBehaviour
 
     private void Update()
     {
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+       // input.x = Input.GetAxisRaw("Horizontal");
+       // input.y = Input.GetAxisRaw("Vertical");
+
     }
 }

@@ -3,7 +3,11 @@ guid: c16a0d82aba8d4040a1d2f3a6d910241
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - stoppingPhysicMaterial: {fileID: 13400000, guid: ca7da9525b3dc924ab20dcc1753021cb,
+      type: 2}
+  - movingPhysicsMaterial: {fileID: 13400000, guid: f85b6251e3f8e4442a65aeda83df589c,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
