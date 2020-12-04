@@ -7875,7 +7875,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accerationForce: 10
-  turnspeed: 0.1
   maxSpeed: 2
 --- !u!114 &1885612124
 MonoBehaviour:
