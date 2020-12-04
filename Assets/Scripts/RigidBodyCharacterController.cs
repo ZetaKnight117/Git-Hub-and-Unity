@@ -47,7 +47,7 @@ public class RigidBodyCharacterController : MonoBehaviour
        
     }
     /// <summary>
-    /// 
+    /// This event handler is called from PlayerInput component using the new Input System
     /// </summary>
     private void Update()
     {
