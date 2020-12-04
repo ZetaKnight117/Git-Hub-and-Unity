@@ -23,11 +23,14 @@ public class RigidBodyCharacterController : MonoBehaviour
     private new Rigidbody rigidbody;
     private Vector2 input;
     private new Collider collider;
+    private int movementInputAnimParam = Animator.StringToHash("movementInput");
+    private Animator animator;
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -50,5 +53,11 @@ public class RigidBodyCharacterController : MonoBehaviour
        // input.x = Input.GetAxisRaw("Horizontal");
        // input.y = Input.GetAxisRaw("Vertical");
 
+    }
+
+    public void OnMove1(InputAction.CallbackContext context)
+    {
+        input = context.ReadValue<Vector2>();
+        animator.SetFloat(movementInputAnimParam, input.magnitude);
     }
 }
