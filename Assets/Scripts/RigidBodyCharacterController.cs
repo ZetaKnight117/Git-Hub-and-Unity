@@ -9,6 +9,11 @@ public class RigidBodyCharacterController : MonoBehaviour
     private float accerationForce = 10;
 
     [SerializeField]
+    [Tooltip("How fastthe player turns. 0 = no turning, 1 = instant snap turning")]
+    [Range(0, 1)]
+    private float turnspeed = 0.1f;
+
+    [SerializeField]
     private float maxSpeed = 2f;
 
     private Vector3 moveVec;
@@ -41,7 +46,9 @@ public class RigidBodyCharacterController : MonoBehaviour
         }       
        
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void Update()
     {
        // input.x = Input.GetAxisRaw("Horizontal");
